@@ -1,1 +1,1 @@
-JOPA!!!
+This is a repository for my F# exercises with Project Euler
