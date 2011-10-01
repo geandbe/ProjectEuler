@@ -1,1 +1,1 @@
-This is a repository for my F# exercises with Project Euler
+This is a repository for F# exercises with Project Euler
