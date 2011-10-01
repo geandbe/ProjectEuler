@@ -20,8 +20,8 @@ let multipleOf3, multipleOf5 = multipleOf 3, multipleOf 5
 let multipleOf3Or5 = (fun x -> multipleOf3 x || multipleOf5 x)
 
 Seq.initInfinite id
-|> Seq.filter (multipleOf3Or5)
 |> Seq.takeWhile ((>) 1000)
+|> Seq.filter (multipleOf3Or5)
 |> Seq.sum
 |> printfn "(4) Problem 1 Answer: %d"
 //--------------------------------------------------------------------//
