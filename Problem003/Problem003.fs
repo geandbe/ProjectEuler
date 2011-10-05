@@ -3,18 +3,6 @@
 // Project Euler Problem 3
 // http://projecteuler.net/problem=3
 
-//let maxPrimeFactor n =
-//    let rec factorize n f =
-//        if n <= f then
-//            f
-//        else
-//            match n%f with
-//            | 0L -> factorize (n/f) f
-//            | _ -> factorize n (f + 1L)
-//
-//    factorize n 2L
-//maxPrimeFactor 600851475143L |> printfn "Problem 3 Answer: %d"
-
     let primeFactors n =
         let rec factorize n f =
             seq {
