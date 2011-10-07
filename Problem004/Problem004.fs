@@ -1,7 +1,6 @@
-﻿module ProjectEuler
-
-// Project Euler Problem 4
+﻿// Project Euler Problem 4
 // http://projecteuler.net/problem=4
+module ProjectEuler
 
 open System
 

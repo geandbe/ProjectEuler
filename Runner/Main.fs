@@ -8,6 +8,7 @@ let problems : (unit -> obj option) array =
         problem002 >> box >> Some;
         problem003 >> box >> Some;
         problem004 >> box >> Some;
+        problem005 >> box >> Some;
         stub;
         stub;
         stub;
