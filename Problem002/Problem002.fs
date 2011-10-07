@@ -11,4 +11,4 @@ module ProjectEuler
 
     let problem002 () =
         fibnums
-        |> Solver.solve ((>=) 4000000) multipleOf2 Seq.sum |> box |> Some
+        |> solve ((>=) 4000000) multipleOf2 Seq.sum

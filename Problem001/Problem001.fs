@@ -1,7 +1,7 @@
-﻿module ProjectEuler
-
-// Project Euler Problem 1
+﻿// Project Euler Problem 1
 // http://projecteuler.net/problem=1
+module ProjectEuler
+
 //--------------------------------------------------------------------//
 //printfn "(1) Problem 1 Answer: %d" (
 //    List.sum [3..3..999]
@@ -33,4 +33,4 @@
 // And solution based on usage of Solver
     let problem001 () =
         (Seq.initInfinite id)
-        |> Solver.solve ((>) 1000) (fun x -> x % 3 = 0 || x % 5 = 0) Seq.sum |> box |> Some
+        |> solve ((>) 1000) (fun x -> x % 3 = 0 || x % 5 = 0) Seq.sum

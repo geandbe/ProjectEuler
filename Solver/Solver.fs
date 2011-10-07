@@ -11,4 +11,3 @@ module Solver
         |> aggregator
 
     let PassAll _ = true
-

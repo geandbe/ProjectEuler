@@ -1,7 +1,6 @@
-﻿module ProjectEuler
-
-// Project Euler Problem 3
+﻿// Project Euler Problem 3
 // http://projecteuler.net/problem=3
+module ProjectEuler
 
     let primeFactors n =
         let rec factorize n f =
@@ -17,4 +16,5 @@
         factorize n 2L
 
     let problem003 () =
-        primeFactors 600851475143L |> solve PassAll PassAll Seq.max |> box |> Some
+        primeFactors 600851475143L
+        |> solve PassAll PassAll Seq.max
