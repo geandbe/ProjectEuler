@@ -70,6 +70,11 @@
       <Project>{2ec8f1bf-3fee-4ddf-aa59-064220f8183a}</Project>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Problem006\Problem006.fsproj">
+      <Name>Problem006</Name>
+      <Project>{99a24b0f-7565-4432-b5b6-d48f675a2020}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="!Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
