@@ -1,5 +1,5 @@
 ﻿// Project Euler Problem 6
-// http://projecteuler.net/problem=5
+// http://projecteuler.net/problem=6
 module ProjectEuler
 
 let aggregate ss =
