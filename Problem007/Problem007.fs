@@ -2,16 +2,6 @@
 // http://projecteuler.net/problem=7
 module ProjectEuler
 
-//let primes =
-//    let rec findNextPrime maybePrime lesserPrimes =
-//        match Seq.tryFind(fun x -> maybePrime % x = 0) lesserPrimes with
-//        | Some _ -> findNextPrime (maybePrime + 2) lesserPrimes
-//        | None -> maybePrime
-//
-//    Seq.append {2..3} (Seq.unfold (fun (len, lastPrime, lessOrEqPrimes) ->
-//                    let nextPrime = findNextPrime (lastPrime + 2) lessOrEqPrimes
-//                    Some (nextPrime, (len + 1, nextPrime, nextPrime::lessOrEqPrimes))) (2,3,[3;2]))
-
 let primes =
     let rec findNextPrime maybePrime lesserPrimes =
         match List.tryFind(fun x -> maybePrime % x = 0) lesserPrimes with
