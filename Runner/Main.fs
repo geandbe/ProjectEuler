@@ -4,13 +4,14 @@ let stub () = None
 
 let problems : (unit -> obj option) array =
     [|
-        problem001 >> box >> Some;
-        problem002 >> box >> Some;
-        problem003 >> box >> Some;
-        problem004 >> box >> Some;
-        problem005 >> box >> Some;
-        problem006 >> box >> Some;
-        problem007 >> box >> Some;
+        stub; //problem001 >> box >> Some;
+        stub; //problem002 >> box >> Some;
+        stub; //problem003 >> box >> Some;
+        stub; //problem004 >> box >> Some;
+        stub; //problem005 >> box >> Some;
+        stub; //problem006 >> box >> Some;
+        stub; //problem007 >> box >> Some;
+        problem008 >> box >> Some;
         stub;
         stub;
         stub;
