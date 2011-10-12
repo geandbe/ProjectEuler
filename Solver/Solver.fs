@@ -1,9 +1,11 @@
-﻿[<AutoOpen>]
-module Solver
+﻿namespace ProjectEuler
+
+[<AutoOpen>]
+module Solver =
 
     let solve (selector: 'a -> bool)
               (filter: 'a -> bool)
-              (aggregator: seq<'a> -> 'a)
+              (aggregator: seq<'a> -> 'b)
               (sequence: seq<'a>) =
         sequence
         |> Seq.takeWhile selector

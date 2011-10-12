@@ -1,27 +1,34 @@
-﻿open ProjectEuler
+﻿namespace ProjectEuler
+module Runner =
 
-let stub () = None
+    let inline wrap any = box any |> Some
 
-let problems : (unit -> obj option) array =
-    [|
-        stub; //problem001 >> box >> Some;
-        stub; //problem002 >> box >> Some;
-        stub; //problem003 >> box >> Some;
-        stub; //problem004 >> box >> Some;
-        stub; //problem005 >> box >> Some;
-        stub; //problem006 >> box >> Some;
-        stub; //problem007 >> box >> Some;
-        problem008 >> box >> Some;
-        stub;
-        stub;
-        stub;
-    |]
+    let stub () = None
+    let omit () = Some(null)
 
 
-[<EntryPoint>]
-let main (args: string[]) =
-    for i = 0 to problems.Length - 1 do
-        match problems.[i]() with
-        | None -> printfn "Project Euler Problem %d is excluded or not implemented yet" (i + 1)
-        | Some(_) as result -> printfn "Project Euler Problem %d Answer: %A" (i + 1) result.Value
-    0
+    let problems : (unit -> obj option) array =
+        [|
+            omit; //Problem001.problem001 >> wrap;
+            omit; //Problem002.problem002 >> wrap;
+            omit; //Problem003.problem003 >> wrap;
+            omit; //Problem004.problem004 >> wrap;
+            omit; //Problem005.problem005 >> wrap;
+            omit; //Problem006.problem006 >> wrap;
+            omit; //Problem007.problem007 >> wrap;
+            omit; //Problem008.problem008 >> wrap;
+            omit; //Problem009.problem009 >> wrap;
+            stub;
+            stub;
+            stub;
+        |]
+
+
+    [<EntryPoint>]
+    let main (args: string[]) =
+        for i = 0 to problems.Length - 1 do
+            match problems.[i]() with
+            | None -> printfn "Project Euler Problem %d solution is not implemented yet" (i + 1)
+            | Some(null) -> printfn "Project Euler Problem %d solution is omitted from run" (i + 1)
+            | Some(_) as result -> printfn "Project Euler Problem %d Answer: %A" (i + 1) result.Value
+        0
