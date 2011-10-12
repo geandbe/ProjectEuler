@@ -14,4 +14,4 @@ module Problem009 =
 
     let problem009 () =
         tripletsSum1000
-        |> solve (fun _ -> true) (fun (a,b,c) -> a * a + b * b = c * c) (Seq.head >> fun (a,b,c) -> a*b*c)
+        |> solve PassAll (fun (a,b,c) -> a * a + b * b = c * c) (Seq.head >> fun (a,b,c) -> a*b*c)
