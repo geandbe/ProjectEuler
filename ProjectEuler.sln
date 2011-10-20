@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Datafiles", "Datafiles", "{F26CF195-2042-4ABB-BA7E-B4B5F27D522E}"
 	ProjectSection(SolutionItems) = preProject
 		Datafiles\grid.data = Datafiles\grid.data
+		Datafiles\Problem013.data = Datafiles\Problem013.data
 	EndProjectSection
 EndProject
 Global
