@@ -6,7 +6,6 @@ module Runner =
     let stub () = None
     let omit () = Some(null)
 
-
     let problems : (unit -> obj option) array =
         [|
             omit; //Problem001.problem001 >> wrap;
@@ -21,11 +20,20 @@ module Runner =
             omit; //Problem010.problem010 >> wrap;
             omit; //Problem011.problem011 >> wrap;
             omit; //Problem012.problem012 >> wrap;
-            Problem013.problem013 >> wrap;
+            omit; //Problem013.problem013 >> wrap;
+            omit; //Problem014.problem014 >> wrap;
+            omit; //Problem015.problem015 >> wrap;
+            Problem016.problem016 >> wrap;
+            Problem017.problem017 >> wrap;
+            stub;
+            stub;
+            stub;
+            stub;
+            stub;
+            stub;
             stub;
             stub;
         |]
-
 
     [<EntryPoint>]
     let main (args: string[]) =
