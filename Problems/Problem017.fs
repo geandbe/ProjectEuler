@@ -4,8 +4,8 @@ module ProjectEuler.Problem017
 
 open System.Text
 
-let inline glue (sb: StringBuilder) (perm: string) (piece: string) =
-    sb.Append(sprintf "%s%s" piece perm) |> ignore
+let inline glue (sb: StringBuilder) (word: string) (quantity: string) =
+    sb.Append(sprintf "%s%s" quantity word) |> ignore
 
 // n -> [|thousands; hundreds; tens; ones|]
 let asPositional n =
