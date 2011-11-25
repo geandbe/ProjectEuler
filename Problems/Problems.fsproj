@@ -63,6 +63,22 @@
     <Compile Include="Problem022.fs" />
     <Compile Include="Problem023.fs" />
     <Compile Include="Problem024.fs" />
+    <Compile Include="Problem025.fs" />
+    <Compile Include="Problem026.fs" />
+    <Compile Include="Problem027.fs" />
+    <Compile Include="Problem028.fs" />
+    <Compile Include="Problem029.fs" />
+    <Compile Include="Problem030.fs" />
+    <Compile Include="Problem031.fs" />
+    <Compile Include="Problem032.fs" />
+    <Compile Include="Problem033.fs" />
+    <Compile Include="Problem034.fs" />
+    <Compile Include="Problem035.fs" />
+    <Compile Include="Problem036.fs" />
+    <Compile Include="Problem037.fs" />
+    <Compile Include="Problem038.fs" />
+    <Compile Include="Problem039.fs" />
+    <Compile Include="Problem040.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solver\Solver.fsproj">

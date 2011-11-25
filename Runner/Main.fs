@@ -30,24 +30,24 @@ module Runner =
             omit; //Problem020.problem020 >> wrap;
             omit; //Problem021.problem021 >> wrap;
             omit; //Problem022.problem022 >> wrap;
-            Problem023.problem023 >> wrap;
-            Problem024.problem024 >> wrap;
-            stub; // Problem 25
-            stub; // Problem 26
-            stub; // Problem 27
-            stub; // Problem 28
-            stub; // Problem 29
-            stub; // Problem 30
-            stub; // Problem 31
-            stub; // Problem 32
-            stub; // Problem 33
-            stub; // Problem 34
-            stub; // Problem 35
-            stub; // Problem 36
-            stub; // Problem 37
-            stub; // Problem 38
-            stub; // Problem 39
-            stub; // Problem 40
+            omit; //Problem023.problem023 >> wrap;
+            omit; //Problem024.problem024 >> wrap;
+            omit; //Problem025.problem025 >> wrap;
+            omit; //Problem026.problem026 >> wrap;
+            omit; //Problem027.problem027 >> wrap;
+            omit; //Problem028.problem028 >> wrap;
+            omit; //Problem029.problem029 >> wrap;
+            omit; //Problem030.problem030 >> wrap;
+            omit; //Problem031.problem031 >> wrap;
+            omit; //Problem032.problem032 >> wrap;
+            omit; //Problem033.problem033 >> wrap;
+            omit; //Problem034.problem034 >> wrap;
+            omit; //Problem035.problem035 >> wrap;
+            omit; //Problem036.problem036 >> wrap;
+            omit; //Problem037.problem037 >> wrap;
+            omit; //Problem038.problem038 >> wrap;
+            omit; //Problem039.problem039 >> wrap;
+            Problem040.problem040 >> wrap;
             stub; // Problem 41
             stub; // Problem 42
             stub; // Problem 43

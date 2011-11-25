@@ -19,7 +19,8 @@ let lexPermutation nth (digits: int []) =
             let divider = fact (members.Length) / members.Length
             let idx = permutationsLeft  / divider
             let next = members.[idx]
-            permutator (next::acc) (permutationsLeft - divider*idx) (exclude next members)
+            permutator
+                (next::acc) (permutationsLeft - divider*idx) (exclude next members)
     
     permutator [] (nth - 1) digits // first permutation is 0th, indeed
 

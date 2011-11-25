@@ -10,4 +10,4 @@ let problem020 () =
     |> fun x -> x.ToString().ToCharArray()
     |> Array.map (fun x -> (int x) - (int '0'))
     |> Array.toSeq
-    |> solve PassAll PassAll (Seq.toArray >> Array.sum)
+    |> solve PassAll PassAll Seq.sum
