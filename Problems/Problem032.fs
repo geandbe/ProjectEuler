@@ -3,6 +3,7 @@
 module ProjectEuler.Problem032
 
 //-------------prelim estimation-------------------------------
+#nowarn "25"
 let maxNum digits = pown 10 digits - 1
 let minNum digits = pown 10 (digits - 1) 
 let nDigits num = int (log(float num) / log(10.)) + 1

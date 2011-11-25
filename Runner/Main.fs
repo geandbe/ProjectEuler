@@ -50,9 +50,9 @@ module Runner =
             omit; //Problem040.problem040 >> wrap;
             omit; //Problem041.problem041 >> wrap;
             omit; //Problem042.problem042 >> wrap;
-            Problem043.problem043 >> wrap;
-            stub; // Problem 44
-            stub; // Problem 45
+            omit; //Problem043.problem043 >> wrap;
+            omit; //Problem044.problem044 >> wrap;
+            Problem045.problem045 >> wrap;
             stub; // Problem 46
             stub; // Problem 47
             stub; // Problem 48
