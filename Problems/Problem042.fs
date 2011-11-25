@@ -11,7 +11,8 @@ let isTriangleNumber n =
 
 let wordValue (word: string) =
     let baseValue = int '@'
-    word |> Seq.fold (fun wval letter -> wval + int letter - baseValue) 0
+    word |> Seq.fold (fun wval letter ->
+                wval + int letter - baseValue) 0
 
 let readData (path: string) =  
     use sr = new StreamReader(path)    

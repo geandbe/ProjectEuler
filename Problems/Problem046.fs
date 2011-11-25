@@ -21,11 +21,14 @@ let oddComposites =
     Seq.unfold (fun x -> Some(x, x+2)) 3 |> Seq.filter (isPrime >> not)
 
 let squares =
-    Seq.cache <| seq { yield 1; yield! Seq.unfold (fun n -> Some(n*n + 2*n + 1, n+1)) 1 }
+    Seq.cache <| seq { yield 1;
+                       yield! Seq.unfold (fun n -> Some(n*n + 2*n + 1, n+1)) 1 }
     
 let falseConjecture n =
-    let someSquares = primes |> Seq.skip 1 |> Seq.takeWhile ((>) n) |> Seq.map (fun x -> (n - x) / 2) |> set
-    let allSquares = squares |> Seq.takeWhile ((>) (Set.maxElement someSquares)) |> set
+    let someSquares = primes |> Seq.skip 1 |> Seq.takeWhile ((>) n)
+                      |> Seq.map (fun x -> (n - x) / 2) |> set
+    let allSquares = squares
+                     |> Seq.takeWhile ((>) (Set.maxElement someSquares)) |> set
     Set.intersect someSquares allSquares = Set.empty
  
 let problem046 () =

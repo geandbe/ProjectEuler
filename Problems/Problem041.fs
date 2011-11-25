@@ -30,4 +30,5 @@ let isPandigital7 n =
 
 let problem041 () =
     primes
-    |> solve ((>=) 7654321) PassAll (Seq.toList >> List.rev >> List.find (isPandigital7))
+    |> solve ((>=) 7654321) PassAll
+       (Seq.toList >> List.rev >> List.find (isPandigital7))

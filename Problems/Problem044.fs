@@ -25,7 +25,8 @@ let problem044 () =
     for i = 0 to upperBound - 1 do
         pentagonals.[i] <- makePentagonal (i+1)
         for j = 0 to i - 1 do
-            if isPentagonal(pentagonals.[i] + pentagonals.[j]) && isPentagonal(pentagonals.[i] - pentagonals.[j]) then
+            if isPentagonal(pentagonals.[i] + pentagonals.[j]) &&
+                  isPentagonal(pentagonals.[i] - pentagonals.[j]) then
                 delta <- pentagonals.[i] - pentagonals.[j]
                 if result > delta then
                     result <- delta
