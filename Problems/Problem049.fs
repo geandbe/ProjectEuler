@@ -2,7 +2,6 @@
 // http://projecteuler.net/problem=49
 module ProjectEuler.Problem049
 
-
 #nowarn "40"
 
 let rec primes = 
@@ -18,10 +17,13 @@ and isPrime n =
 
 let arePermutes n =
     let toSet n = n.ToString().ToCharArray() |> set
-    (toSet (n + 3330)).Equals((toSet n)) && (toSet (n + 6660)).Equals((toSet n))
+    (toSet (n + 3330)).Equals((toSet n)) &&
+    (toSet (n + 6660)).Equals((toSet n))
 
 let isUnusual n =
-    (isPrime (n + 3330)) && (isPrime (n + 6660)) && (arePermutes n)
+    (isPrime (n + 3330)) &&
+    (isPrime (n + 6660)) &&
+    (arePermutes n)
 
 let problem049 () =
     primes
