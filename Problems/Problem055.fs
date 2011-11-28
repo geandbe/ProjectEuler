@@ -7,7 +7,6 @@ open System
 let isPalindromic (n: bigint) =
     let isPalindrom (s: string) =
         String(s.ToCharArray() |> Array.rev) = s
-
     isPalindrom (string n)
 
 let revert (n: bigint) =
@@ -15,8 +14,8 @@ let revert (n: bigint) =
 
 let isLychrel (n: bigint) =
     Seq.unfold (fun (i,x) ->
-        if isPalindromic x || i > 49 then None else
-        Some((i,x), (i+1, x + (revert x))))
+        if isPalindromic x || i > 49 then None
+        else Some((i,x), (i+1, x + (revert x))))
         (1, n + (revert n))
     |> Seq.length |> fun x -> if x >= 49 then 1 else 0
 
