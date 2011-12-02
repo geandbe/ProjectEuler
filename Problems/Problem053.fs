@@ -15,5 +15,4 @@ let problem053 () =
             |> Seq.tryFind (fun x -> combinations x n > 1000000I)
             |> function | None -> 0I | _ as x -> n + 1I - 2I*x.Value)
         }
-    
     |> Seq.sum

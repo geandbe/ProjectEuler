@@ -92,6 +92,7 @@
     <Compile Include="Problem051.fs" />
     <Compile Include="Problem052.fs" />
     <Compile Include="Problem053.fs" />
+    <Compile Include="Problem054.fs" />
     <Compile Include="Problem055.fs" />
   </ItemGroup>
   <ItemGroup>
