@@ -7,6 +7,9 @@ module ProjectEuler.Problem054
 open System
 open System.IO
 
+type Ranks = HighCard = 0 | Pair = 5 | ThreeOfAKind = 7 | Straight = 8
+                | Flush = 9 | FourOfAKind = 14 | StraightFlush = 15
+
 type Suit = Spades = 0 | Diamonds = 1 | Clubs  = 2| Hearts = 3
 
 type PlayingCard =
@@ -41,12 +44,10 @@ type PlayingCard =
         match __ with
         | ValueCard(x,y) | Queen(x,y) | Jack(x,y) | King(x,y) | Ace(x,y) -> y
 
-let rank (hand: string array) =
+let rank hand =
     let cards = hand |> Array.map PlayingCard.Parse |> Array.sortBy (fun x -> x.Value)
-    let handMap = Array2D.init 4 13 (fun _ _ -> 0)
-    let suits = Array.init 4 (fun _ -> 0)
-    let values = Array.init 13 (fun _ -> 0)
-    let ranks = Array.init 16 (fun _ -> 0) // here we will calculate in base14 positional number system
+    let handMap: int [,] = Array2D.zeroCreate 4 13
+    let suits, values, ranks = (Array.zeroCreate 4), (Array.zeroCreate 13), (Array.zeroCreate 16)
 
     for card in cards do handMap.[int card.Suit, card.Value - 1] <- 1
 
@@ -55,22 +56,22 @@ let rank (hand: string array) =
             suits.[i] <- suits.[i] + handMap.[i,j]
             values.[j] <- values.[j] + handMap.[i,j]
     
-    if Array.max suits = 5 then // all cards of a same suit
-        if cards.[4].Value - cards.[0].Value = 4 then
-            ranks.[15] <- cards.[0].Value // Process StraightFlush && RoyalFlush
-        else // Process a plain Flush
-            for i in [0..4] do ranks.[i+9] <- cards.[i].Value
+    if Array.max suits = 5 then // all are the same suit
+        if cards.[4].Value - cards.[0].Value = 4 then // ... and consecutive value
+            ranks.[int Ranks.StraightFlush] <- cards.[0].Value
+        else
+            for i in [0..4] do ranks.[int Ranks.Flush + i] <- cards.[i].Value
     elif Array.max values = 1 && cards.[4].Value - cards.[0].Value = 4 then
-        ranks.[8] <- cards.[0].Value // Process Straigh
+        ranks.[int Ranks.Straight] <- cards.[0].Value
     else
-        let mutable singleIdx = 0
-        let mutable pairIdx = 5
+        let singleIdx = ref (int Ranks.HighCard)
+        let pairIdx = ref (int Ranks.Pair)
         for i in [0..12] do
             match values.[i] with
-            | 4 -> ranks.[14] <- i + 1
-            | 3 -> ranks.[7] <- i + 1
-            | 2 -> ranks.[pairIdx] <- i + 1; pairIdx <- pairIdx + 1
-            | 1 -> ranks.[singleIdx] <- i + 1; singleIdx <- singleIdx + 1
+            | 4 -> ranks.[int Ranks.FourOfAKind] <- i + 1
+            | 3 -> ranks.[int Ranks.ThreeOfAKind] <- i + 1
+            | 2 -> ranks.[!pairIdx] <- i + 1; incr pairIdx
+            | 1 -> ranks.[!singleIdx] <- i + 1; incr singleIdx
             | _ -> ()
     
     ranks |> Array.fold (fun (sum, power) x -> (sum + (bigint x)*power, power*14I)) (0I, 1I) |> fst
