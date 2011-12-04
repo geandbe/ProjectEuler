@@ -10,7 +10,7 @@ open System.IO
 type Ranks = HighCard = 0 | Pair = 5 | ThreeOfAKind = 7 | Straight = 8
                 | Flush = 9 | FourOfAKind = 14 | StraightFlush = 15
 
-type Suit = Spades = 0 | Diamonds = 1 | Clubs  = 2| Hearts = 3
+type Suit = Spades = 0 | Diamonds = 1 | Clubs  = 2 | Hearts = 3
 
 type PlayingCard =
     | Ace of int*Suit | King of int*Suit | Queen of int*Suit | Jack of int*Suit | ValueCard of int*Suit
