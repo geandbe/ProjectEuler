@@ -32,7 +32,7 @@ let generate figurate =
     |> Seq.map (fun x -> (x.Substring(0,2), x.Substring(2), figurate))
     |> Seq.toList
 
-type Member = { Head:string; Tail:string; Poly:Figurate }
+type Link = { Head:string; Tail:string; Poly:Figurate }
 
 let problem061 () =
     let prune xs =
@@ -40,13 +40,13 @@ let problem061 () =
                                      (xs |> List.map (fun (_,t,_) -> t) |> set)
         List.filter (fun (h,t,_) -> linkable.Contains h && linkable.Contains t) xs
 
-    let members =
+    let links =
         [Triangle;Square;Pentagonal;Hexagonal;Heptagonal;Octagonal]
         |> List.collect generate
         |> prune
         |> List.map (fun (h,t,f) -> {Head=h;Tail=t;Poly=f})
 
-    let octagonal,others = List.partition (fun x -> x.Poly = Octagonal) members
+    let octagonal,others = List.partition (fun x -> x.Poly = Octagonal) links
 
     [ for i in octagonal do
         for j in others |> List.filter (fun x -> x.Head = i.Tail) do
@@ -55,11 +55,11 @@ let problem061 () =
                     for m in others |> List.filter (fun x -> x.Head = l.Tail) do
                         for n in others |> List.filter (fun x -> x.Head = m.Tail && x.Tail = i.Head) do
                             if set [i.Poly;j.Poly;k.Poly;l.Poly;m.Poly;n.Poly] |> Set.count = 6 then
-                                yield Int32.Parse (i.Head + i.Tail)
-                                yield Int32.Parse (j.Head + j.Tail)
-                                yield Int32.Parse (k.Head + k.Tail)
-                                yield Int32.Parse (l.Head + l.Tail)
-                                yield Int32.Parse (m.Head + m.Tail)
-                                yield Int32.Parse (n.Head + n.Tail)
-    ] |> List.sum
+                                yield i.Head + i.Tail
+                                yield j.Head + j.Tail
+                                yield k.Head + k.Tail
+                                yield l.Head + l.Tail
+                                yield m.Head + m.Tail
+                                yield n.Head + n.Tail
+    ] |> List.map Int32.Parse |> List.sum
                                     
