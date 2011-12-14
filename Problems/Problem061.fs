@@ -24,26 +24,27 @@ type Figurate =
         | Octagonal -> fun n -> n * (3 * n - 2)
 
 let generate figurate =
-    Seq.initInfinite (fun n -> (n, ((Figurate.Generator figurate) >> string) n))
+    Seq.initInfinite ((Figurate.Generator figurate) >> string)
     |> Seq.skip 1
-    |> Seq.skipWhile (snd >> String.is4CharLong >> not)
-    |> Seq.takeWhile (snd >> String.is4CharLong)
-    |> Seq.filter (snd >> String.hasNoZeros)
-    |> Seq.map (fun x -> ((snd x).Substring(0,2)), ((snd x).Substring(2)), figurate, (fst x))
+    |> Seq.skipWhile (String.is4CharLong >> not)
+    |> Seq.takeWhile String.is4CharLong
+    |> Seq.filter String.hasNoZeros
+    |> Seq.map (fun x -> (x.Substring(0,2), x.Substring(2), figurate))
     |> Seq.toList
 
-type Member = { Head:string; Tail:string; Poly:Figurate; Order:int }
+type Member = { Head:string; Tail:string; Poly:Figurate }
 
 let problem061 () =
     let prune xs =
-        let linkable = Set.intersect (xs |> List.map (fun (h,_,_,_) -> h) |> set) (xs |> List.map (fun (_,t,_,_) -> t) |> set)
-        List.filter (fun (h,t,_,_) -> linkable.Contains h && linkable.Contains t) xs
+        let linkable = Set.intersect (xs |> List.map (fun (h,_,_) -> h) |> set)
+                                     (xs |> List.map (fun (_,t,_) -> t) |> set)
+        List.filter (fun (h,t,_) -> linkable.Contains h && linkable.Contains t) xs
 
     let members =
         [Triangle;Square;Pentagonal;Hexagonal;Heptagonal;Octagonal]
         |> List.collect generate
         |> prune
-        |> List.map (fun (h,t,f,n) -> {Head=h;Tail=t;Poly=f;Order=n})
+        |> List.map (fun (h,t,f) -> {Head=h;Tail=t;Poly=f})
 
     let octagonal,others = List.partition (fun x -> x.Poly = Octagonal) members
 
@@ -53,8 +54,7 @@ let problem061 () =
                 for l in others |> List.filter (fun x -> x.Head = k.Tail) do
                     for m in others |> List.filter (fun x -> x.Head = l.Tail) do
                         for n in others |> List.filter (fun x -> x.Head = m.Tail && x.Tail = i.Head) do
-                            if [i.Poly;j.Poly;k.Poly;l.Poly;m.Poly;n.Poly] |> set |> Set.count = 6
-                               && [i.Order;j.Order;k.Order;l.Order;m.Order;n.Order] |> set |> Set.count = 6 then
+                            if set [i.Poly;j.Poly;k.Poly;l.Poly;m.Poly;n.Poly] |> Set.count = 6 then
                                 yield Int32.Parse (i.Head + i.Tail)
                                 yield Int32.Parse (j.Head + j.Tail)
                                 yield Int32.Parse (k.Head + k.Tail)
