@@ -25,7 +25,6 @@ type Figurate =
 
 let generate figurate =
     Seq.initInfinite ((Figurate.Generator figurate) >> string)
-    |> Seq.skip 1
     |> Seq.skipWhile (String.is4CharLong >> not)
     |> Seq.takeWhile String.is4CharLong
     |> Seq.filter String.hasNoZeros
