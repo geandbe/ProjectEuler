@@ -73,8 +73,16 @@ module Runner =
             omit; //Problem063.problem063 >> wrap;
             omit; //Problem064.problem064 >> wrap;
             omit; //Problem065.problem065 >> wrap;
-            Problem066.problem066 >> wrap;
+            omit; //Problem066.problem066 >> wrap;
             omit; //Problems018_067.problem067 >> wrap;
+            Problem068.problem068 >> wrap;
+            stub; //Problem069.problem069 >> wrap;
+            stub; //Problem070.problem070 >> wrap;
+            stub; //Problem071.problem071 >> wrap;
+            stub; //Problem072.problem072 >> wrap;
+            stub; //Problem073.problem073 >> wrap;
+            stub; //Problem074.problem074 >> wrap;
+            stub; //Problem075.problem075 >> wrap;
         |]
 
     [<EntryPoint>]
