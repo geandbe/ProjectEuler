@@ -109,6 +109,7 @@
     <Compile Include="Problem069.fs" />
     <Compile Include="Problem070.fs" />
     <Compile Include="Problem071.fs" />
+    <Compile Include="Problem072.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solver\Solver.fsproj">
