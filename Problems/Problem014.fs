@@ -9,7 +9,11 @@ let numTerms (n: int64) =
         else Some(x, 3L*x + 1L)) n
     |> Seq.length |> fun x -> (n, x+1)
 
-let problem014 () =
-    [1L..999999L] |> Seq.map numTerms
-    |> solve PassAll PassAll (Seq.maxBy snd >> fst)
+//let problem014 () =
+//    [1L..999999L] |> Seq.map numTerms
+//    |> solve PassAll PassAll (Seq.maxBy snd >> fst)
 
+let problem014 () =
+    [1L..999999L]
+    |> List.map numTerms
+    |> (List.maxBy snd >> fst)

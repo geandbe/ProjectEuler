@@ -1,20 +1,23 @@
 ﻿// Project Euler Problem 4
 // http://projecteuler.net/problem=4
-namespace ProjectEuler
-module Problem004 =
 
-    open System
+module ProjectEuler.Problem004
 
-    let allProducts l1 l2 =
-        List.map (fun x -> (List.map (fun y -> x * y) l2)) l1 |> List.concat
+open System
 
-    let isAnagram (s: string) =
-        new String(s.ToCharArray() |> Array.rev) = s
+let allProducts l1 l2 =
+    List.map (fun x -> (List.map (fun y -> x * y) l2)) l1 |> List.concat
 
-    let isPalindromic n = 
-        isAnagram(string n)
+let isAnagram (s: string) =
+    new String(s.ToCharArray() |> Array.rev) = s
 
-    let problem004 () =
-        allProducts [100..999] [100..999] |> Seq.distinct
-        |> solve PassAll isPalindromic Seq.max
+let isPalindromic n = 
+    isAnagram(string n)
 
+//let problem004 () =
+//    allProducts [100..999] [100..999] |> Seq.distinct
+//    |> solve PassAll isPalindromic Seq.max
+
+let problem004 () =
+    allProducts [100..999] [100..999]
+    |> (Seq.distinct >> Seq.filter isPalindromic >> Seq.max)

@@ -1,13 +1,9 @@
 ﻿// Project Euler Problem 6
 // http://projecteuler.net/problem=6
-namespace ProjectEuler
-module Problem006 =
 
-    let aggregate ss =
-        ss
-        |> Seq.fold (fun (sum, sumsqrs) s -> (sum + s, sumsqrs + s * s))(0, 0)
-        |> fun (sum,sumsqrs) -> sum * sum - sumsqrs
+module ProjectEuler.Problem006
 
-    let problem006 () =
-        Seq.initInfinite id
-        |> solve ((>=) 100) PassAll aggregate
+let problem006 () =
+    [0..100]
+    |> List.fold (fun (sum, sumsqrs) s -> (sum + s, sumsqrs + s * s))(0, 0)
+    |> fun (sum,sumsqrs) -> sum * sum - sumsqrs

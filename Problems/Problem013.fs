@@ -11,7 +11,10 @@ let readLines (filePath: string) =
             yield bigint.Parse(sr.ReadLine ())
         } 
 
+//let problem013 () =
+//    readLines @"..\..\..\Datafiles\problem013.data"
+//    |> solve PassAll PassAll (Seq.sum >> sprintf "%A" >> fun x -> x.Substring(0,10))
+
 let problem013 () =
     readLines @"..\..\..\Datafiles\problem013.data"
-    |> solve PassAll PassAll (Seq.sum >> sprintf "%A" >> fun x -> x.Substring(0,10))
-
+    |> (Seq.sum >> sprintf "%A" >> fun x -> x.Substring(0,10))

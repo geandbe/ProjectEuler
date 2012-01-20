@@ -15,10 +15,14 @@ and isPrime n =
         |> fun x -> x.Value * x.Value > n
     else false
 
+//let problem010 () =
+//    primes
+//    |> solve ((>) 2000000) PassAll (Seq.map int64 >> Seq.sum)
+
 let problem010 () =
     primes
-    |> solve ((>) 2000000) PassAll (Seq.map int64 >> Seq.sum)
-
+    |> Seq.takeWhile ((>) 2000000)
+    |> (Seq.map int64 >> Seq.sum)
 // Leftovers from performance measurements
 //    let time f () =
 //        let t = System.Diagnostics.Stopwatch()

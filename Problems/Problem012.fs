@@ -25,6 +25,9 @@ let numberOfDivisors number =
     |> Seq.fold (fun acc (factor, exp) -> acc * (exp + 1)) 1
 
 // Finally, solve the Problem 12
+//let problem012 () =
+//    triangles
+//    |> solve PassAll PassAll (Seq.tryFind (fun t -> (numberOfDivisors t) > 500) >> Option.get)
+
 let problem012 () =
-    triangles
-    |> solve PassAll PassAll (Seq.tryFind (fun t -> (numberOfDivisors t) > 500) >> Option.get)
+    triangles |> (Seq.tryFind (fun t -> (numberOfDivisors t) > 500) >> Option.get)

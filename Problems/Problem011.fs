@@ -1,5 +1,6 @@
 ﻿// Project Euler Problem 11
 // http://projecteuler.net/problem=11
+
 module ProjectEuler.Problem011
 
 open System
@@ -46,6 +47,9 @@ let products =
                 yield run S x y; yield run SW x y; 
     ]
 
+//let problem011 () =
+//    products
+//    |> solve PassAll PassAll Seq.max
+
 let problem011 () =
-    products
-    |> solve PassAll PassAll Seq.max
+    products |> Seq.max
