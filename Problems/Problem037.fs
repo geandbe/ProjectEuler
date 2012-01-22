@@ -29,6 +29,10 @@ let isTruncatableR n =
         
 let isTruncatable n = n > 7 && isTruncatableL n && isTruncatableR n
 
+//let problem037 () =
+//    primes
+//    |> solve PassAll isTruncatable (Seq.take 11 >> Seq.sum)
+
 let problem037 () =
     primes
-    |> solve PassAll isTruncatable (Seq.take 11 >> Seq.sum)
+    |> Seq.filter isTruncatable |> (Seq.take 11 >> Seq.sum)

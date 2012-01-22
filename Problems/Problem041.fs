@@ -28,7 +28,12 @@ let set7 = ['1';'2';'3';'4';'5';'6';'7'] |> set
 let isPandigital7 n =
     n.ToString().ToCharArray() |> Set.ofArray = set7
 
+//let problem041 () =
+//    primes
+//    |> solve ((>=) 7654321) PassAll
+//       (Seq.toList >> List.rev >> List.find (isPandigital7))
+
 let problem041 () =
     primes
-    |> solve ((>=) 7654321) PassAll
-       (Seq.toList >> List.rev >> List.find (isPandigital7))
+    |> Seq.takeWhile ((>=) 7654321)
+    |> (Seq.toList >> List.rev >> List.find (isPandigital7))

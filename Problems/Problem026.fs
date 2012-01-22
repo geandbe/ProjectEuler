@@ -10,6 +10,10 @@ let isFullReptent n =
         |> Seq.filter (fun x -> ((pown 10I x) - 1I) % (bigint (int n)) = 0I)
         |> Seq.head) + 1 = n // cycle length is n - 1
 
+//let problem026 () =
+//    [1..999]
+//    |> solve PassAll isFullReptent Seq.max 
+
 let problem026 () =
     [1..999]
-    |> solve PassAll isFullReptent Seq.max 
+    |> Seq.filter isFullReptent |> Seq.max 

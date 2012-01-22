@@ -28,6 +28,12 @@ let disassemble n = n.ToString().ToCharArray() |> Array.toList
 let assemble (n: char list) =
     System.Convert.ToInt32(new string(List.toArray n))
 
+//let problem035 () =
+//    primes
+//    |> solve ((>) 1000000) (disassemble >> getRotations >> Seq.map assemble >> Seq.forall isPrime) Seq.length
+
 let problem035 () =
     primes
-    |> solve ((>) 1000000) (disassemble >> getRotations >> Seq.map assemble >> Seq.forall isPrime) Seq.length
+    |> Seq.takeWhile ((>) 1000000)
+    |> Seq.filter (disassemble >> getRotations >> Seq.map assemble >> Seq.forall isPrime)
+    |> Seq.length

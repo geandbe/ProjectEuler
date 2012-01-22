@@ -11,10 +11,17 @@ let readData (path: string) =
     use sr = new StreamReader(path)  
     sr.ReadLine().Split(',')
 
+//let problem022 () =
+//    readData @"..\..\..\Datafiles\Problem022.data"
+//    |> Array.map (fun x -> x.Replace("\"",""))
+//    |> Array.sort
+//    |> Array.mapi (fun i x -> int64((alphavalue x) * (i + 1)))
+//    |> Array.toSeq
+//    |> solve PassAll PassAll Seq.sum
+
 let problem022 () =
     readData @"..\..\..\Datafiles\Problem022.data"
     |> Array.map (fun x -> x.Replace("\"",""))
     |> Array.sort
     |> Array.mapi (fun i x -> int64((alphavalue x) * (i + 1)))
-    |> Array.toSeq
-    |> solve PassAll PassAll Seq.sum
+    |> Array.sum

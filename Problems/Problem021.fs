@@ -18,6 +18,10 @@ let isAmicable a =
     let pair = divisorSum a
     a <> pair && a = divisorSum pair
 
+//let problem021 () =
+//    {1..9999}
+//    |> solve PassAll isAmicable Seq.sum
+
 let problem021 () =
     {1..9999}
-    |> solve PassAll isAmicable Seq.sum
+    |> Seq.filter isAmicable |> Seq.sum

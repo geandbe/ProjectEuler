@@ -10,6 +10,10 @@ let isPalindrom (s: string) =
 let isPalindromic (n: int) =
     isPalindrom (Convert.ToString (n, 2)) && isPalindrom (string n)
 
+//let problem036 () =
+//    {1..999999}
+//    |> solve PassAll isPalindromic Seq.sum
+
 let problem036 () =
     {1..999999}
-    |> solve PassAll isPalindromic Seq.sum
+    |> Seq.filter isPalindromic |> Seq.sum

@@ -45,7 +45,12 @@ let asWords (num: int array) =
 let lettersCount (numAsWords: string) =
     numAsWords.Replace (" ","") |> String.length
 
+//let problem017 () =
+//    [1..1000]
+//    |> List.map (asPositional >> asWords >> lettersCount)
+//    |> solve PassAll PassAll Seq.sum
+
 let problem017 () =
     [1..1000]
     |> List.map (asPositional >> asWords >> lettersCount)
-    |> solve PassAll PassAll Seq.sum
+    |> List.sum

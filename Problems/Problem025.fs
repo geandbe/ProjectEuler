@@ -9,7 +9,12 @@ let fibnums =
         Some(current+next, (next, current+next)))(1I,1I)
     |> Seq.append (seq[0I;1I;1I])
 
+//let problem025 () =
+//    fibnums
+//    |> Seq.takeWhile (fun x -> nDigits x < 1000)
+//    |> solve PassAll PassAll Seq.length
+
 let problem025 () =
     fibnums
     |> Seq.takeWhile (fun x -> nDigits x < 1000)
-    |> solve PassAll PassAll Seq.length
+    |> Seq.length

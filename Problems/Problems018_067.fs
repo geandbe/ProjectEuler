@@ -25,8 +25,14 @@ let rec findMaxPath l =
     | first::second::t -> findMaxPath ((maxpath (pair first) second) :: t)
     | _ -> List.max (List.head l)
 
+//let problem018 () =
+//    Seq.empty |> solve PassAll PassAll (fun _ -> findMaxPath (getData @"..\..\..\Datafiles\Problem018.data"))
+//
+//let problem067 () =
+//    Seq.empty |> solve PassAll PassAll (fun _ -> findMaxPath (getData @"..\..\..\Datafiles\Problem067.data"))
+
 let problem018 () =
-    Seq.empty |> solve PassAll PassAll (fun _ -> findMaxPath (getData @"..\..\..\Datafiles\Problem018.data"))
+    findMaxPath (getData @"..\..\..\Datafiles\Problem018.data")
 
 let problem067 () =
-    Seq.empty |> solve PassAll PassAll (fun _ -> findMaxPath (getData @"..\..\..\Datafiles\Problem067.data"))
+    findMaxPath (getData @"..\..\..\Datafiles\Problem067.data")

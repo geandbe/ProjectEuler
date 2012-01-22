@@ -24,8 +24,12 @@ let lexPermutation nth (digits: int []) =
     
     permutator [] (nth - 1) digits // first permutation is 0th, indeed
 
+//let problem024 () =
+//    Seq.empty
+//    |> solve PassAll PassAll (fun _ ->
+//                                lexPermutation 1000000 [|0..9|]
+//                                |> Array.map string |> fun x -> String.Join("", x))
+
 let problem024 () =
-    Seq.empty
-    |> solve PassAll PassAll (fun _ ->
-                                lexPermutation 1000000 [|0..9|]
-                                |> Array.map string |> fun x -> String.Join("", x))
+    lexPermutation 1000000 [|0..9|]
+    |> Array.map string |> fun x -> String.Join("", x)

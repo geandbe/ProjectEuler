@@ -15,7 +15,10 @@ let asSumOfDigitsPow5 (n: int) =
     Seq.unfold (fun x -> if x = 0 then None else Some(pown (x%10) 5, x/10) ) n
     |> Seq.sum
 
+//let problem030 () =
+//    {10..maxAsSumOfDigitsPow5}
+//    |> solve PassAll (fun x -> x = asSumOfDigitsPow5 x) Seq.sum
+
 let problem030 () =
     {10..maxAsSumOfDigitsPow5}
-    |> solve PassAll (fun x -> x = asSumOfDigitsPow5 x) Seq.sum
-
+    |> Seq.filter (fun x -> x = asSumOfDigitsPow5 x) |> Seq.sum

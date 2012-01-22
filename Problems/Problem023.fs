@@ -32,6 +32,10 @@ let fastSolution abundant =
     
     [for i in 0..28122 do if numbers.[i] = 0 then yield i + 1] |> List.sum
 
+//let problem023 () =
+//    [1..28123]
+//    |> solve PassAll isAbundant (Seq.toList >> fastSolution)
+
 let problem023 () =
     [1..28123]
-    |> solve PassAll isAbundant (Seq.toList >> fastSolution)
+    |> Seq.filter isAbundant |> (Seq.toList >> fastSolution)
