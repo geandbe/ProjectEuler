@@ -16,6 +16,3 @@ let problem073() =
                 Some(1, ((c,d),temp*c - a, temp*d - b)))
             (``preceding1/3``, 1, 3)
     |> Seq.sum |> (+) -1
-
-
-
