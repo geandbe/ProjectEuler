@@ -12,8 +12,6 @@ let rec gcd n m =
 let maxPerimeter = 1500000
 let maxSide = maxPerimeter/2 |> (float >> sqrt >> int)
 
-// Euclid's formula for generating Pythagorean triples
-// (http://en.wikipedia.org/wiki/Pythagorean_triple) 
 let problem075() =
     let allPerimeters: int[] = Array.zeroCreate (maxPerimeter + 1)
     let rec multiples p' p =
@@ -26,6 +24,8 @@ let problem075() =
                 allPerimeters.[p'] <- -1
             multiples (p' + p) p
         
+//  Euclid's formula for generating Pythagorean triples
+//  (http://en.wikipedia.org/wiki/Pythagorean_triple) 
     for m in 2..maxSide do
         for n in 1..(m - 1) do
             if (n + m) % 2 = 1 && (gcd n m = 1) then
