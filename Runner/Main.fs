@@ -81,8 +81,33 @@ module Runner =
             omit; //Problem071.problem071 >> wrap;
             omit; //Problem072.problem072 >> wrap;
             omit; //Problem073.problem073 >> wrap;
-            Problem074.problem074 >> wrap;
-            stub; //Problem075.problem075 >> wrap;
+            omit; //Problem074.problem074 >> wrap;
+            Problem075.problem075 >> wrap;
+            stub; //Problem076.problem076 >> wrap;
+            stub; //Problem077.problem077 >> wrap;
+            stub; //Problem078.problem078 >> wrap;
+            stub; //Problem079.problem079 >> wrap;
+            stub; //Problem080.problem080 >> wrap;
+            stub; //Problem081.problem081 >> wrap;
+            stub; //Problem082.problem082 >> wrap;
+            stub; //Problem083.problem083 >> wrap;
+            stub; //Problem084.problem084 >> wrap;
+            stub; //Problem085.problem085 >> wrap;
+            stub; //Problem086.problem086 >> wrap;
+            stub; //Problem087.problem087 >> wrap;
+            stub; //Problem088.problem088 >> wrap;
+            stub; //Problem089.problem089 >> wrap;
+            stub; //Problem090.problem090 >> wrap;
+            stub; //Problem091.problem091 >> wrap;
+            stub; //Problem092.problem092 >> wrap;
+            stub; //Problem093.problem093 >> wrap;
+            stub; //Problem094.problem094 >> wrap;
+            stub; //Problem095.problem095 >> wrap;
+            stub; //Problem096.problem096 >> wrap;
+            stub; //Problem097.problem097 >> wrap;
+            stub; //Problem098.problem098 >> wrap;
+            stub; //Problem099.problem099 >> wrap;
+            stub; //Problem100.problem100 >> wrap;
         |]
 
     [<EntryPoint>]
