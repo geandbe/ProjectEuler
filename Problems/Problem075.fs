@@ -14,22 +14,22 @@ let maxSide = maxPerimeter/2 |> (float >> sqrt >> int)
 
 // Euclid's formula for generating Pythagorean triples
 // (http://en.wikipedia.org/wiki/Pythagorean_triple) 
-let perimeters =
-    let multiples p =
-        Seq.unfold (fun perimeter ->
-            if perimeter <= maxPerimeter
-            then Some(perimeter, perimeter + p) else None) p
+let problem075() =
+    let allPerimeters: int[] = Array.zeroCreate (maxPerimeter + 1)
+    let rec multiples p' p =
+        if p' <= maxPerimeter then
+            if allPerimeters.[p'] = 0 then
+                allPerimeters.[0] <- allPerimeters.[0] + 1
+                allPerimeters.[p'] <- 1
+            elif allPerimeters.[p'] = 1 then
+                allPerimeters.[0] <- allPerimeters.[0] - 1
+                allPerimeters.[p'] <- -1
+            multiples (p' + p) p
         
-    
-    [ for m in 2..maxSide do
+    for m in 2..maxSide do
         for n in 1..(m - 1) do
             if (n + m) % 2 = 1 && (gcd n m = 1) then
-                yield! multiples (2 * (m*m + n*m))
-    ]
-
-let problem075() =
-    perimeters
-    |> Seq.groupBy id
-    |> Seq.fold (fun sum (x,y) ->
-        if Seq.length y = 1 then sum + 1 else sum) 0
-
+                multiples (2 * (m*m + n*m)) (2 * (m*m + n*m))
+    
+    allPerimeters.[0]
+    
