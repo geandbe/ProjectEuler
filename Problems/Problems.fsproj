@@ -32,6 +32,7 @@
     <DocumentationFile>bin\Release\Problems.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FSharp.PowerPack, Version=1.9.9.9, Culture=neutral, PublicKeyToken=a19089b1c74d0809" />
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
     <Reference Include="System" />
@@ -116,6 +117,8 @@
     <Compile Include="Problem076.fs" />
     <Compile Include="Problem077.fs" />
     <Compile Include="Problem078.fs" />
+    <Compile Include="Problem079.fs" />
+    <Compile Include="Problem080.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solver\Solver.fsproj">
