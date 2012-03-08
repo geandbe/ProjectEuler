@@ -1,36 +1,40 @@
-﻿module Problem079
+﻿// Project Euler Problem 79
+// http://projecteuler.net/problem=79
+
+module ProjectEuler.Problem079
+
+open System.IO
+open System
+
+let getData (path: string) =
+    [ use sr = new StreamReader(path)
+      while not sr.EndOfStream do
+      yield sr.ReadLine() |> int ]
 
 let pairs =
-   [319; 680; 180; 690; 129; 620; 762; 689; 762; 318;
-    368; 710; 720; 710; 629; 168; 160; 689; 716; 731;
-    736; 729; 316; 729; 729; 710; 769; 290; 719; 680;
-    318; 389; 162; 289; 162; 718; 729; 319; 790; 680;
-    890; 362; 319; 760; 316; 729; 380; 319; 728; 716]
+    getData @"..\..\..\Datafiles\Problem079.data"
     |> set |> Set.toSeq
     |> Seq.collect (fun x ->
                     x.ToString().ToCharArray()
-                    |> fun y -> seq { yield (y.[0], y.[1]); yield (y.[1], y.[2]) })
+                    |> fun y -> seq {
+                                        yield (y.[0], y.[1])
+                                        yield (y.[1], y.[2])
+                                    })
     |> set |> Set.toList
 
-(*
-val pairs : (char * char) list =
-  [('1', '0'); ('1', '2'); ('1', '6'); ('1', '8'); ('1', '9');
-   ('2', '0'); ('2', '8'); ('2', '9');
-   ('3', '1'); ('3', '6'); ('3', '8');
-   ('6', '0'); ('6', '2'); ('6', '8'); ('6', '9');
-   ('7', '1'); ('7', '2'); ('7', '3'); ('7', '6'); ('7', '9');
-   ('8', '0'); ('8', '9');
-   ('9', '0')]
 
-   {0; 1; 2; 3; 6; 7; 8; 9}
-   {3; 7} 1 {0;2;6;8;9}
-   {3; 7} 1 -> 2 {0; 6; 8; 9}
-   {7} 3 -> 1 -> 2 {0; 6; 8; 9}
-   {7} 3 -> 1 -> 6 -> 2 {0; 8; 9}
-   7 -> 3 -> 1 -> 6 -> 2 {0; 8; 9}
-   7 -> 3 -> 1 -> 6 -> 2 -> 8 {0; 9}
-   7 -> 3 -> 1 -> 6 -> 2 -> 8 -> 9 {0}
-   7 -> 3 -> 1 -> 6 -> 2 -> 8 -> 9 -> 0
-*)
+let last ts =
+    ts |> List.fold (fun (f,t) (x,y) ->
+        ((Set.add x f), (Set.add y t))) (Set.empty,Set.empty)
+    |> fun (x,y) -> Set.difference y x |> Set.toList |> List.head
 
-let problem079 () = 73162890
+let cut i ts = ts |> List.fold (fun ts' (x,y) ->
+    if y <> i then (x,y) :: ts' else ts') []
+
+let rec pull pairs chain =
+    match pairs with
+    | [(x,y)] -> x::y::chain
+    | _ -> pull (cut (last pairs) pairs) ((last pairs)::chain)
+
+let problem079 () =
+    pull pairs [] |> List.toArray |> fun x -> Int32.Parse(new string(x))

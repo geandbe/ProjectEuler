@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Datafiles", "Datafiles", "{
 		Datafiles\Problem054.data = Datafiles\Problem054.data
 		Datafiles\Problem059.data = Datafiles\Problem059.data
 		Datafiles\Problem067.data = Datafiles\Problem067.data
+		Datafiles\Problem079.data = Datafiles\Problem079.data
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C5D4B043-4AF1-4B2C-9E1B-66D93CC1178E}"
