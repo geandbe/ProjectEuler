@@ -6,8 +6,7 @@ let inline nDigits n = String.length <| (n.ToString())
 
 let fibnums =
     Seq.unfold (fun (current, next) ->
-        Some(current+next, (next, current+next)))(1I,1I)
-    |> Seq.append (seq[0I;1I;1I])
+        Some(current, (next, current+next)))(0I,1I)
 
 //let problem025 () =
 //    fibnums
