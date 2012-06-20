@@ -30,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\Release\Problems.XML</DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FSharp.PowerPack">
@@ -124,6 +125,7 @@
     <Compile Include="Problem081.fs" />
     <Compile Include="Problem082.fs" />
     <Compile Include="Problem083.fs" />
+    <Compile Include="Problem084.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solver\Solver.fsproj">
