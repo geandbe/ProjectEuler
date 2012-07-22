@@ -93,8 +93,8 @@ module Runner =
             omit; //Problem083.problem083 >> wrap;
             omit; //Problem084.problem084 >> wrap;
             omit; //Problem085.problem085 >> wrap;
-            Problem086.problem086 >> wrap;
-            stub; //Problem087.problem087 >> wrap;
+            omit; //Problem086.problem086 >> wrap;
+            Problem087.problem087 >> wrap;
             stub; //Problem088.problem088 >> wrap;
             stub; //Problem089.problem089 >> wrap;
             stub; //Problem090.problem090 >> wrap;

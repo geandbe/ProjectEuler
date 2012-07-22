@@ -25,3 +25,4 @@ module Gravatar =
 
     let gravatarURI email =
         @"http://www.gravatar.com/avatar/" + (email2hash email) + @"/?d=identicon"
+
