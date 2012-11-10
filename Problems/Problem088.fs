@@ -38,8 +38,6 @@ let factorsProductSum xs =
 let updateMins = function
     size,prodSum -> if size <= K && prodSum < prodSumMins.[size]  then
                         prodSumMins.[size] <- prodSum
-                    elif size > K && prodSum > K2 then
-                        printfn "Oversized: %A" (size,prodSum)
 
 let problem088() =
     prodSums |> Seq.iter (factorsProductSum >> updateMins)
